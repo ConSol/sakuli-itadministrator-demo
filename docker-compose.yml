@@ -1,0 +1,19 @@
+sakuli:
+    image: consol/sakuli-ubuntu-xfce:dev
+    volumes: 
+    - ./example_xfce/:/root/my_test_suites/example_xfce
+    environment:
+    - TZ=Europe/Berlin
+    - SAKULI_TEST_SUITE=/root/my_test_suites/example_xfce
+    ports:
+    - "5901:5901"
+    command: "--run /root/my_test_suites/example_xfce --loop 5"
+    #command: /bin/bash
+    links: 
+#    - omdsakuli_omd-labs_1:omd
+    - omd-labs:omd
+
+omd-labs:
+    image: local/sakuli-omd-labs-ubuntu
+    ports:
+    - "8080:80"
