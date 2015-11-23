@@ -1,4 +1,5 @@
 sakuli:
+    container_name: demo_sakuli
     image: consol/sakuli-ubuntu-xfce:dev
     volumes: 
     - ./example_xfce/:/root/my_test_suites/example_xfce
@@ -14,6 +15,7 @@ sakuli:
     - omd-labs:omd
 
 omd-labs:
+    container_name: demo_omd
     image: local/sakuli-omd-labs-ubuntu
     ports:
     - "8080:80"
