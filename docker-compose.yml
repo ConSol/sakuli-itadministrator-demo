@@ -8,14 +8,15 @@ sakuli:
     - SAKULI_TEST_SUITE=/root/my_test_suites/example_xfce
     ports:
     - "5901:5901"
-    command: "--run /root/my_test_suites/example_xfce --loop 5"
+    - "6901:6901"
+    command: "run /root/my_test_suites/example_xfce -loop 1" 
     #command: /bin/bash
     links: 
-#    - omdsakuli_omd-labs_1:omd
     - omd-labs:omd
 
 omd-labs:
     container_name: demo_omd
-    image: local/sakuli-omd-labs-ubuntu
+    #image: consol/omd-labs-ubuntu-sakuli:dev
+    image: local/sakuli-omd-labs-ubuntu:dev
     ports:
-    - "8080:80"
+    - "8443:443"

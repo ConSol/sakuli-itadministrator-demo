@@ -43,7 +43,6 @@ try {
     appCalc.open();
 
     screen.waitForImage("calculator.png", 5);
-
     env.type("525");
     env.sleep(2);
     var calcRegion = appCalc.getRegion();
@@ -60,11 +59,7 @@ try {
 } catch (e) {
     testCase.handleException(e);
 } finally {
-    appCalc.close(true);  //silent
-    appGedit.close(true); //silent
-    var existsCloseWithoutSaving = screen.exists("close-without-saving", 1);
-    if (existsCloseWithoutSaving) {
-        existsCloseWithoutSaving.click();
-    }
+    appCalc.kill(true);  //silent
+    appGedit.kill(true); //silent
     testCase.saveResult();
 }
