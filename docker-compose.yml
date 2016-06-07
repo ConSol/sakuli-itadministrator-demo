@@ -16,7 +16,8 @@ sakuli:
 
 omd-labs:
     container_name: demo_omd
-    #image: consol/omd-labs-ubuntu-sakuli:dev
-    image: local/sakuli-omd-labs-ubuntu:dev
+    image: consol/omd-labs-ubuntu-sakuli:dev
+    #image: local/sakuli-omd-labs-ubuntu:dev
     ports:
     - "8443:443"
+    - "8080:80"
